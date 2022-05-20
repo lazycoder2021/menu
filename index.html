@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .buttons{
+            display:flex;
+            //border:1px solid black;
+            text-align:center;
+            margin:20px auto;
+            width:100%; 
+            justify-content:center;
+        }
+
+        .buttons > button{
+            padding:5px 10px;
+            margin:5px;
+        }
+
+        .menu-items {
+            display: flex;
+            width: 80%;
+            justify-content: center;
+            margin: 50px auto;
+            //border: 10px solid black;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .menu-item{
+            width:30.33%; 
+            height:100px;
+            padding:0px;
+            text-align:center;
+            border:1px solid black;
+            margin:5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="buttons">
+        <button data-id="all" class="btn">All</button>
+        <button data-id="dinner" class="btn">Dinner</button>
+        <button data-id="dessert" class="btn">Dessert</button>
+        <button data-id="starters" class="btn">Starters</button>
+    </div>
+
+    <div class="menu-items">
+        <div class="menu-item" data-id="starters">
+            <h2>Chicken 65</h2>
+        </div>
+        <div class="menu-item" data-id="dinner">
+            <h2>Dosa</h2>
+        </div>
+        <div class="menu-item" data-id="dessert">
+            <h2>Sweet</h2>
+        </div>
+        <div class="menu-item" data-id="dinner">
+            <h2>Idli</h2>
+        </div>
+        <div class="menu-item" data-id="dinner">
+            <h2>Chapathi</h2>
+        </div>
+        <div class="menu-item" data-id="starters">
+            <h2>Fish 65</h2>
+        </div>
+        <div class="menu-item" data-id="dessert">
+            <h2>Ice Cream</h2>
+        </div>
+        <div class="menu-item" data-id="dinner">
+            <h2>Bread</h2>
+        </div>
+        <div class="menu-item" data-id="dessert">
+            <h2>Soda</h2>
+        </div>
+    </div>
+
+
+    <script>
+        document.querySelectorAll('.btn').forEach((b) => {
+            b.addEventListener('click', function (e) {
+                //console.log(e.target.dataset.id);
+                var searchId = e.target.dataset.id;
+                searchList(searchId); 
+            })
+        })
+
+        function searchList(searchId) {
+
+            document.querySelectorAll('.menu-item').forEach((mi) => {
+                console.log(searchId);
+                if (mi.dataset.id === searchId) {
+                    mi.style.display = 'block';
+                } else if (searchId === 'all') {
+                    mi.style.display = 'block';
+                }
+                else {
+                    mi.style.display = 'none';
+                }
+            })
+
+
+       
+
+
+        }
+
+
+
+
+    </script>
+
+</body>
+</html>
